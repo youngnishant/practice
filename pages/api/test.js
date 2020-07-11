@@ -1,9 +1,6 @@
-import mongoose from 'mongoose'
 import connect from '../../database/connect'
-
 connect()
- 
-  const Notes=require('../../database/models/notes')
+ const Notes=require('../../database/models/notes')
   
   module.exports= async(req, res) => {
     switch(req.method)  {
@@ -20,6 +17,12 @@ connect()
             })
             const savedNote= await note.save()
             res.json(savedNote)
+            break;
+        case "DELETE":
+            const {_id}=req.body
+            Notes.find({_id}).deleteOne()
+            res.status(404)
+            
 
     }
 
