@@ -6,3 +6,4 @@ router.get('/notes',(req,res)=>{
     res.send('hello user');
 
 })
+export default router
