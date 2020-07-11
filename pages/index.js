@@ -82,7 +82,7 @@ const Home = () => {
       </Table>
     </TableContainer>    
 
-    <TextField  
+    <TextField  label="Write Here...."
     id="filled-basic"autoFocus='true'fullWidth="true"
      onChange={(e)=>setContent(e.target.value)}
       style={{position:"fixed",bottom:0,maxWidth:300,width:'600px',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
