@@ -1,15 +1,9 @@
 import mongoose from 'mongoose'
-mongoose.connect("mongodb+srv://abc:gettingGood@cluster0-lfanp.mongodb.net/test?retryWrites=true&w=majority", {
-    useNewUrlParser: true,
-    useFindAndModify: false,
-    useCreateIndex: true,
-  });
+import connect from '../../database/connect'
 
-  let noteSchema=new mongoose.Schema({
-      content:{type:String},
-      by:{type:String}
-  })
-  const Notes=mongoose.models.notes || mongoose.model('notes', noteSchema);
+connect()
+ 
+  const Notes=require('../../database/models/notes')
   
   module.exports= async(req, res) => {
     switch(req.method)  {
@@ -24,8 +18,8 @@ mongoose.connect("mongodb+srv://abc:gettingGood@cluster0-lfanp.mongodb.net/test?
             const note=new Notes({
                 content,by
             })
-            note.save()
-            res.json({"msg":"success"})
+            const savedNote= await note.save()
+            res.json(savedNote)
 
     }
 
