@@ -19,9 +19,10 @@ connect()
             res.json(savedNote)
             break;
         case "DELETE":
-            const {_id}=req.body
-            Notes.find({_id}).delete()
-            res.status(404)
+            const {_id}=req.query
+            console.log("id is "+_id)
+            await Notes.findByIdAndDelete(_id)
+            res.json([{msg:'Deleted'}])
             
 
     }

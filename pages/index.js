@@ -12,9 +12,11 @@ const Home = () => {
    })
   },[])
 
-  const remove=(id)=>{
-    axios.delete('/api/test')
-    setNotes(notes.filter(note=>note._id!==id))
+  const remove=(_id)=>{
+    
+    axios.delete(`/api/test?_id=${_id}`,_id)
+    console.log("id is "+_id)
+    setNotes(notes.filter(note=>note._id!==_id))
   }
   const publish=async()=>{
      const note={
