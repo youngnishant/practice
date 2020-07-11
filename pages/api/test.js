@@ -20,7 +20,7 @@ connect()
             break;
         case "DELETE":
             const {_id}=req.body
-            Notes.find({_id}).deleteOne()
+            Notes.find({_id}).delete()
             res.status(404)
             
 
