@@ -83,9 +83,9 @@ const Home = () => {
     </TableContainer>    
 
     <TextField  label="Write Here...."
-    id="filled-basic"autoFocus='true'fullWidth="true"
+    id="filled-basic"
      onChange={(e)=>setContent(e.target.value)}
-      style={{position:"fixed",bottom:0,maxWidth:300,width:'600px',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
+      style={{position:"fixed",bottom:0,maxWidth:300,width:'500px',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
 
 
     <Button variant="contained"
