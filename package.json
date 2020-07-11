@@ -9,8 +9,12 @@
   },
   "dependencies": {
     "express": "^4.17.1",
+    "mongoose": "^5.9.23",
     "next": "^9.3.3",
     "react": "^16.13.0",
     "react-dom": "^16.13.0"
+  },
+  "devDependencies": {
+    "@vercel/node": "^1.7.2"
   }
 }
