@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   
 });
 const Home = () => {
-  const [content,setContent]=useState('Write here...')
+  const [content,setContent]=useState('')
   const [notes,setNotes]=useState([])
   const classes = useStyles();
 
@@ -36,7 +36,7 @@ const Home = () => {
      }
   const body=await axios.post('/api/test',note)
   setNotes(notes.concat(body.data))
-  setContent(" ")
+  setContent('')
 
     }
 
@@ -83,6 +83,7 @@ const Home = () => {
     name='e'
     placeholder="Write Here....."
      margin="normal"
+     value={content}
      InputLabelProps={{
        shrink: true,
      }}
