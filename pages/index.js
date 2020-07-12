@@ -14,7 +14,6 @@ const useStyles = makeStyles({
 });
 const Home = () => {
   const [content,setContent]=useState('')
-  const[name,setName]=useState('Nishant')
   const [notes,setNotes]=useState([])
   const classes = useStyles();
 
@@ -34,10 +33,10 @@ const Home = () => {
   const publish=async()=>{
      const note={
        content:content,
-       by:name,
      }
   const body=await axios.post('/api/test',note)
   setNotes(notes.concat(body.data))
+  setContent("")
     }
 
    
@@ -59,8 +58,7 @@ const Home = () => {
        <Table className={classes.table} aria-label="simple table">
        <TableHead>
        <TableRow> 
-         <TableCell align="center">TODO</TableCell>
-        <TableCell align="center">Author</TableCell>
+         <TableCell align="center">TODO App</TableCell>
         <TableCell align="center">Action</TableCell>
         </TableRow>
         </TableHead>
@@ -70,7 +68,6 @@ const Home = () => {
          return(
           <TableRow key={note._id}>
           <TableCell align="center">{note.content}</TableCell>
-          <TableCell align="center">{note.by}</TableCell>
           <TableCell align="center"><button className="delete"onClick={()=>remove(note._id)}>Done</button></TableCell>
           </TableRow>
 
@@ -82,9 +79,13 @@ const Home = () => {
       </Table>
     </TableContainer>    
 
-    <TextField  label="Write Here...."
-    id="filled-basic"
-     onChange={(e)=>setContent(e.target.value)}
+    <TextField  placeholder="Write Here...."
+     margin="normal"
+     InputLabelProps={{
+       shrink: true,
+     }}
+          id="standard-full-width"
+          onChange={(e)=>setContent(e.target.value)}
       style={{position:"fixed",bottom:0,maxWidth:300,width:'500px',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
 
 

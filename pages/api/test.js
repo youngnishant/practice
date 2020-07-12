@@ -11,7 +11,7 @@ connect()
         break;
 
         case "POST":
-            const {content,by} =req.body
+            const {content} =req.body
             const note=new Notes({
                 content,by
             })
@@ -20,7 +20,6 @@ connect()
             break;
         case "DELETE":
             const {_id}=req.query
-            console.log("id is "+_id)
             await Notes.findByIdAndDelete(_id)
             res.json([{msg:'Deleted'}])
             
