@@ -7,6 +7,7 @@ if(!mongoose.connection.readyState){
         useNewUrlParser: true,
         useFindAndModify: false,
         useCreateIndex: true,
+         useUnifiedTopology: true 
       }
       );
       console.log("connect2:"+mongoose.connection.readyState)

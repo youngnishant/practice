@@ -6,9 +6,7 @@ import Typography from '@material-ui/core/Typography';
 
 
 const useStyles = makeStyles((theme) => ({
-  root: {
-    flexGrow: 1,
-  },
+  
   
   title: {
     flexGrow: 1,
@@ -21,15 +19,13 @@ export default function ButtonAppBar() {
   const classes = useStyles();
 
   return (
-    <div className={classes.root}>
-      <AppBar position="static">
+      <AppBar color='primary'variant="outlined" position="static">
         <Toolbar>
           
           <Typography variant="h6" className={classes.title}>
-           Todo
+           TODO APP
           </Typography>
         </Toolbar>
       </AppBar>
-    </div>
   );
 }

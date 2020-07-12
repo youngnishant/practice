@@ -13,7 +13,7 @@ connect()
         case "POST":
             const {content} =req.body
             const note=new Notes({
-                content,by
+                content
             })
             const savedNote= await note.save()
             res.json(savedNote)

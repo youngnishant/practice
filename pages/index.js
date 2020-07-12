@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   
 });
 const Home = () => {
-  const [content,setContent]=useState('')
+  const [content,setContent]=useState('Write here...')
   const [notes,setNotes]=useState([])
   const classes = useStyles();
 
@@ -27,20 +27,20 @@ const Home = () => {
   const remove=(_id)=>{
     
     axios.delete(`/api/test?_id=${_id}`,_id)
-    console.log("id is "+_id)
     setNotes(notes.filter(note=>note._id!==_id))
   }
-  const publish=async()=>{
+  const publish=async(e)=>{
+    e.preventDefault()
      const note={
        content:content,
      }
   const body=await axios.post('/api/test',note)
   setNotes(notes.concat(body.data))
-  setContent("")
+  setContent(" ")
+
     }
 
    
-    console.log(notes)
   return(
     
     <div>
@@ -58,8 +58,8 @@ const Home = () => {
        <Table className={classes.table} aria-label="simple table">
        <TableHead>
        <TableRow> 
-         <TableCell align="center">TODO App</TableCell>
-        <TableCell align="center">Action</TableCell>
+         <TableCell align="center"><h2>Task</h2></TableCell>
+        <TableCell align="center"><h2>Action</h2></TableCell>
         </TableRow>
         </TableHead>
         <TableBody>
@@ -68,7 +68,7 @@ const Home = () => {
          return(
           <TableRow key={note._id}>
           <TableCell align="center">{note.content}</TableCell>
-          <TableCell align="center"><button className="delete"onClick={()=>remove(note._id)}>Done</button></TableCell>
+          <TableCell align="center"><Button variant="outlined" color="primary"onClick={()=>remove(note._id)}>Done</Button></TableCell>
           </TableRow>
 
 
@@ -79,24 +79,27 @@ const Home = () => {
       </Table>
     </TableContainer>    
 
-    <TextField  placeholder="Write Here...."
+    <TextField  
+    name='e'
+    placeholder="Write Here....."
      margin="normal"
      InputLabelProps={{
        shrink: true,
      }}
           id="standard-full-width"
+          
           onChange={(e)=>setContent(e.target.value)}
-      style={{position:"fixed",bottom:0,maxWidth:300,width:'500px',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
+      style={{position:"fixed",bottom:0,width:'20em',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
 
 
     <Button variant="contained"
     color="primary"
-    onClick={publish}
+    onClick={(e)=>publish(e)}
     className={classes.button}
     endIcon={<Icon>send</Icon>}
     style={{position:"fixed",bottom:0,right:0,margin:'0 2px 10px 10px'}}>
       Send</Button>
-
+<br/><br/><br/><h2>All Caught Up !</h2><br/><br/><br/><br/>
      </div>
 
    
