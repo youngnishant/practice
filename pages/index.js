@@ -90,15 +90,15 @@ const Home = () => {
           id="standard-full-width"
           
           onChange={(e)=>setContent(e.target.value)}
-      style={{position:"fixed",bottom:0,width:'20em',margin:'0 0 10px 10px',color:'black',backgroundColor:'white'}}/>
+      style={{position:"fixed",bottom:0,width:'20em',margin:'0 0 0px 0px',padding:'10px',color:'black',backgroundColor:'white'}}/>
 
 
-    <Button variant="contained"
-    color="primary"
+    <Button variant="contained"size='large'
+    color="primary"disableElevation
     onClick={(e)=>publish(e)}
     className={classes.button}
     endIcon={<Icon>send</Icon>}
-    style={{position:"fixed",bottom:0,right:0,margin:'0 2px 10px 10px'}}>
+    style={{position:"fixed",bottom:0,right:0,margin:'4px 2px 10px 10px'}}>
       Send</Button>
 <br/><br/><br/><h2>All Caught Up !</h2><br/><br/><br/><br/>
      </div>
